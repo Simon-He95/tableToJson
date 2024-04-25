@@ -12,16 +12,24 @@ export function transfer(tableStr: string) {
         continue
 
       const _children = child.children
-      const thead = _children.find((item: any) => item.name === 'thead').children[0].children.map(c => c.children[0].data)
-      const tbody = _children.find((item: any) => item.name === 'tbody').children.map(c => c.children.map((i) => {
-        let target = i.children
-        if (!target)
-          return false
-        target = target[0]
-        if (target.type === 'text')
-          return target.data
-        return target.children[0].data
-      }).filter(Boolean))
+      const thead = _children
+        .find((item: any) => item.name === 'thead')
+        .children[0].children.map((c: any) => c.children[0].data)
+      const tbody = _children
+        .find((item: any) => item.name === 'tbody')
+        .children.map((c: any) =>
+          c.children
+            .map((i: any) => {
+              let target = i.children
+              if (!target)
+                return false
+              target = target[0]
+              if (target.type === 'text')
+                return target.data
+              return target.children[0].data
+            })
+            .filter(Boolean),
+        )
       if (thead.includes('Value')) {
         // 属性
         tbody.forEach((item: any) => {
