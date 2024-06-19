@@ -71,7 +71,7 @@
     "eslint-plugin-n": "^15.3.0",
     "highlight.js": "^11.8.0",
     "htmlparser2": "^9.0.0",
-    "lazy-js-utils": "^0.0.66",
+    "lazy-js-utils": "^0.0.93",
     "lint-staged": "^13.1.0",
     "picocolors": "^1.0.0",
     "prettier": "^2.8.1",
